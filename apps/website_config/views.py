@@ -14,7 +14,7 @@ class MainCategoryListView(generics.ListAPIView):
     """
     API для получения списка главных категорий с подкатегориями
     """
-    queryset = MainCategory.objects.filter(is_active=True)
+    queryset = MainCategory.objects.filter(is_active=True).order_by('-id')
     serializer_class = MainCategoryWithSubsSerializer
     
     @extend_schema(
